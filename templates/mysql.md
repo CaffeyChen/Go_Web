@@ -30,7 +30,15 @@ MySQL 的架构共分为两层:Server 层负责建立连接、分析和执行 SQ
 </details>
 
 <details>
-  <summary>5. 有什么优化索引的方法？</summary>
+  <summary>5. 什么情况下索引会失效？</summary>
+
+![image](https://github.com/user-attachments/assets/e15470ef-1d41-4634-a12a-6897a0e0ef6c)
+
+
+</details>
+
+<details>
+  <summary>6. 有什么优化索引的方法？</summary>
 
 - 前缀索引优化；
 - 覆盖索引优化；
@@ -40,7 +48,7 @@ MySQL 的架构共分为两层:Server 层负责建立连接、分析和执行 SQ
 </details>
 
 <details>
-  <summary>6. 事务有哪些特性？</summary>
+  <summary>7. 事务有哪些特性？</summary>
 
 - 持久性是通过 redo log （重做日志）来保证的；
 - 原子性是通过 undo log（回滚日志） 来保证的；
@@ -50,7 +58,7 @@ MySQL 的架构共分为两层:Server 层负责建立连接、分析和执行 SQ
 </details>
 
 <details>
-  <summary>7. 并行事务会引发什么问题？</summary>
+  <summary>8. 并行事务会引发什么问题？</summary>
 
 - 脏读：如果一个事务「读到」了另一个「未提交事务修改过的数据」，就意味着发生了「脏读」现象。
 - 不可重复读：在一个事务内多次读取同一个数据，如果出现前后两次读到的数据不一样的情况，就意味着发生了「不可重复读」现象。
@@ -59,7 +67,7 @@ MySQL 的架构共分为两层:Server 层负责建立连接、分析和执行 SQ
 </details>
 
 <details>
-  <summary>8. 事务的隔离级别有哪些？</summary>
+  <summary>9. 事务的隔离级别有哪些？</summary>
 
 - 读未提交（read uncommitted），指一个事务还没提交时，它做的变更就能被其他事务看到；
 - 读提交（read committed），指一个事务提交之后，它做的变更才能被其他事务看到；
@@ -70,14 +78,14 @@ MySQL 的架构共分为两层:Server 层负责建立连接、分析和执行 SQ
 </details>
 
 <details>
-  <summary>8. Read View 在 MVCC 里如何工作的？</summary>
+  <summary>10. Read View 在 MVCC 里如何工作的？</summary>
 
 ![image](https://github.com/user-attachments/assets/cc660ff3-c0da-49e1-ae3b-5b37f9bbb824)
 
 </details>
 
 <details>
-  <summary>9. 可重复读和读提交工作原理？</summary>
+  <summary>11. 可重复读和读提交工作原理？</summary>
 
 - 「读提交」隔离级别是在每个 select 都会生成一个新的 Read View，也意味着，事务期间的多次读取同一条数据，前后两次读的数据可能会出现不一致，因为可能这期间另外一个事务修改了该记录，并提交了事务。
 - 「可重复读」隔离级别是启动事务时生成一个 Read View，然后整个事务期间都在用这个 Read View，这样就保证了在事务期间读到的数据都是事务启动前的记录。
@@ -85,14 +93,14 @@ MySQL 的架构共分为两层:Server 层负责建立连接、分析和执行 SQ
 </details>
 
 <details>
-  <summary>10. mysql有哪些锁？</summary>
+  <summary>12. mysql有哪些锁？</summary>
 
 ![image](https://github.com/user-attachments/assets/6da011c0-63a8-4f14-9c94-23b311babf17)
 
 </details>
 
 <details>
-  <summary>11. mysql如何加锁？</summary>
+  <summary>13. mysql如何加锁？</summary>
 
 ![image](https://github.com/user-attachments/assets/adf69eb0-a476-4cc4-8625-41195a1e6abf)
 ![image](https://github.com/user-attachments/assets/0533c88f-a47a-48b7-9054-16101dbc6439)
@@ -100,14 +108,14 @@ MySQL 的架构共分为两层:Server 层负责建立连接、分析和执行 SQ
 </details>
 
 <details>
-  <summary>12. undo log, redo log, binlog？</summary>
+  <summary>14. undo log, redo log, binlog？</summary>
 
 ![image](https://github.com/user-attachments/assets/3e7b306f-f916-4d52-8f08-98b53b4dc255)
 
 </details>
 
 <details>
-  <summary>13. 简述 RPC 的调用过程</summary>
+  <summary>15. 简述 RPC 的调用过程</summary>
 
 - 客户端调用本地代理（Stub）：客户端程序调用本地的代理方法，代理方法负责封装远程调用的参数。
 - 序列化请求：本地代理将参数序列化为网络可传输的格式。
