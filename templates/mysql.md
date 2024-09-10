@@ -100,7 +100,14 @@ MySQL 的架构共分为两层:Server 层负责建立连接、分析和执行 SQ
 </details>
 
 <details>
-  <summary>12. 简述 RPC 的调用过程</summary>
+  <summary>12. undo log, redo log, binlog？</summary>
+
+![image](https://github.com/user-attachments/assets/3e7b306f-f916-4d52-8f08-98b53b4dc255)
+
+</details>
+
+<details>
+  <summary>13. 简述 RPC 的调用过程</summary>
 
 - 客户端调用本地代理（Stub）：客户端程序调用本地的代理方法，代理方法负责封装远程调用的参数。
 - 序列化请求：本地代理将参数序列化为网络可传输的格式。
